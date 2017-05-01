@@ -1,0 +1,34 @@
+<div class="flex-container padding-16" fxLayout="column" fxLayoutAlign="center center">
+  <div style="padding-bottom: 8px;">
+    <span>{{count}} of {{todosTemp.length}} remaining</span> [ <a (click)="delete()">archive</a> ]
+  </div>
+  <div>
+    <md-list>
+      <md-list-item *ngFor="let todo of todos | async">
+        <div>
+          <md-checkbox class="example-margin" [(ngModel)]="todo.status" (ngModelChange)="updateStatus(todo.$key,todo.status)"></md-checkbox>
+        </div>
+        <h3 md-line>{{todo.text}}</h3>
+        <p md-line class="secondary-text">
+          {{todo.name}}
+        </p>
+        <img md-list-avatar src="{{todo.pic}}" alt="todo.name">
+      </md-list-item>
+      <md-divider></md-divider>
+
+    </md-list>
+  </div>
+  <!--<div fxLayout="row" fxLayoutAlign="center center" *ngFor="let todo of todos | async" style="width:100%;padding-bottom: 8px;">
+    <div class="flex-item" fxFlex="40" fxFlex.xs="20"></div>
+    <div class="flex-item" fxFlex="20" fxFlex.xs="60">
+      <md-checkbox class="example-margin" [(ngModel)]="todo.status" (ngModelChange)="updateStatus(todo.$key,todo.status)">{{todo.text}}</md-checkbox>
+    </div>
+    <div class="flex-item" fxFlex="40" fxFlex.xs="20"></div>
+  </div>-->
+  <div>
+    <md-input-container>
+      <input mdInput placeholder="Todo" [(ngModel)]="todoName">
+    </md-input-container>
+    <button md-button md-raised-button color="accent" (click)="addTodo()">Add</button>
+  </div>
+</div>

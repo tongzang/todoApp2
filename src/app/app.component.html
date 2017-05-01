@@ -1,0 +1,14 @@
+<div *ngIf="checkPage">
+  <app-header *ngIf="checkUrl!='/'"></app-header>
+
+  <div *ngIf="checkUrl=='/'" style="background-color:#1976D2;height:100vh;" class="flex-container">
+    <div fxLayout="column" fxLayoutAlign="center center" style="height: 20%;">
+      <div style="font-size:64px;font-weight: bold;color:#FFFFFF;">Todo</div>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center center" style="height: 80%;">
+      <div><button md-raised-button color="accent" (click)="login()">Login with Facebook</button></div>
+    </div>
+    <!--<button md-raised-button (click)="logout()">Logout</button>-->
+  </div>
+</div>
+<router-outlet></router-outlet>
